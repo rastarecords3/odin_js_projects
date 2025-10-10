@@ -20,6 +20,7 @@ function getHumanChoice() {
 // declare score variables
 let humanScore = 0
 let computerScore = 0
+let round = 1
 
 // create a function to play a round
 function playRound() {
@@ -27,14 +28,37 @@ function playRound() {
     const humanChoice = getHumanChoice().toLowerCase();
     const computerChoice = getComputerChoice();
     // return {humanChoice, computerChoice};
-    if (humanChoice === computerChoice) {console.log(`You chose ${humanChoice}, the computer chose ${computerChoice} it's a draw.`)}
+    if (humanChoice === computerChoice) {console.log(`You chose ${humanChoice}, the computer chose ${computerChoice} it's a draw.`);
+        console.log(`Human score: ${humanScore} - Computer score: ${computerScore}`)}
     else if (
         (humanChoice === 'rock' && computerChoice === 'scissors') ||
         (humanChoice === 'paper' && computerChoice === 'rock') ||
-        (humanChoice === 'scissors' && computerChoice === 'rock')
+        (humanChoice === 'scissors' && computerChoice === 'paper')
             )
-        {console.log(`You chose ${humanChoice}, the computer chose ${computerChoice} you win this round!`)}
+        {humanScore++;
+        console.log(`You chose ${humanChoice}, the computer chose ${computerChoice} you win this round!`);
+        console.log(`Human score: ${humanScore} - Computer score: ${computerScore}`)}
     else
-        {console.log (`You chose ${humanChoice}, the computer chose ${computerChoice} you loose this round.`)}
+        {computerScore++;
+        console.log (`You chose ${humanChoice}, the computer chose ${computerChoice} you loose this round.`)
+        console.log(`Human score: ${humanScore} - Computer score: ${computerScore}`)}
     return {humanChoice, computerChoice};
+}
+
+// function to play a game of 5 rounds
+function playGame() {
+    while (round <= 5) {
+        playRound();
+        round++;
+    }
+    let finalMessage = '';
+    if (humanScore > computerScore)
+        {finalMessage = 'you win!!'}
+    else if (humanScore == computerScore)
+        {finalMessage = 'it\'s a draw.'}
+    else
+        {finalMessage = 'you loose'}
+
+    console.log('---GAME OVER---');
+    return (`Final Score: Human ${humanScore} - Computer ${computerScore} - ${finalMessage}`)
 }
