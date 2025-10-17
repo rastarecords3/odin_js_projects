@@ -17,6 +17,8 @@ container.appendChild(h3)
 // another <h1> that says “I’m in a div”
 // a <p> that says “ME TOO!”
 const div = document.createElement("div")
+div.style.border = "2px solid black"
+div.style.backgroundColor = "pink"
 const h1 = document.createElement("h1")
 h1.textContent = "I'm a div"
 const p1 = document.createElement("p")
