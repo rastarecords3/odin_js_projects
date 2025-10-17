@@ -26,3 +26,13 @@ p1.textContent = "ME TOO!"
 div.appendChild(h1)
 div.appendChild(p1)
 container.appendChild(div)
+
+function alertFunction() {
+    alert("Hello World!")
+}
+
+const btn2 = document.querySelector("#btn2")
+btn2.onclick = alertFunction
+
+const btn3 = document.querySelector("#btn3")
+btn3.addEventListener("click", alertFunction)
