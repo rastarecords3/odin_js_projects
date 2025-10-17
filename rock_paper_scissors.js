@@ -1,3 +1,11 @@
+const buttons = document.querySelectorAll("button")
+buttons.forEach((button) => {
+    button.addEventListener("click", () => {
+        const humanChoice = button.id
+        alert(`You chose ${humanChoice}`)
+    })
+})
+
 // function to get computer's choice of rock/paper/scissors
 function getComputerChoice() {
     // get a random integer from 1 to 3
