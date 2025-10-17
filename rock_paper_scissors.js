@@ -3,6 +3,7 @@ buttons.forEach((button) => {
     button.addEventListener("click", () => {
         const humanChoice = button.id
         alert(`You chose ${humanChoice}`)
+        playRound(humanChoice)
     })
 })
 
@@ -30,10 +31,8 @@ let humanScore = 0
 let computerScore = 0
 let round = 1
 
-// create a function to play a round
-function playRound() {
-    // get the choices
-    const humanChoice = getHumanChoice().toLowerCase();
+// function to play a round with humanChoice as a parameter 
+function playRound(humanChoice) {
     const computerChoice = getComputerChoice();
     // return {humanChoice, computerChoice};
     if (humanChoice === computerChoice) {console.log(`You chose ${humanChoice}, the computer chose ${computerChoice} it's a draw.`);
