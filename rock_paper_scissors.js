@@ -42,6 +42,7 @@ function getComputerChoice() {
 // function to play a round with humanChoice as a parameter 
 function playRound(humanChoice) {
     const computerChoice = getComputerChoice();
+    console.log(`Computer chose ${computerChoice}`)
     let message = ''
     
     if (humanChoice === computerChoice) {
@@ -56,24 +57,31 @@ function playRound(humanChoice) {
         message = `You chose ${humanChoice}, the computer chose ${computerChoice} you lose this round.`
     }
 
-    displayMessage.textContent = `${message} (Human: ${humanScore} - Computer: ${computerScore})`;
-    return {humanChoice, computerChoice};
+    displayMessage.innerHTML = `Round: ${round} ${message}<br>(Human: ${humanScore} - Computer: ${computerScore})`;
+    console.log(`Round: ${round}`)
+
+    if (round <5) {
+        round++
+    }
+    else {
+        endGame(humanScore, computerScore, message)
+    }
 }
 
-// function to play a game of 5 rounds
-function playGame() {
-    while (round <= 5) {
-        playRound();
-        round++;
-    }
-    let finalMessage = '';
+// function to end the game after 5 rounds and declare a winner
+function endGame(humanScore, computerScore, message) {
+    let finalMessage = ''
     if (humanScore > computerScore)
-        {finalMessage = 'you win!!'}
+    {finalMessage = 'you win!!'}
     else if (humanScore == computerScore)
-        {finalMessage = 'it\'s a draw.'}
+    {finalMessage = 'it\'s a draw.'}
     else
-        {finalMessage = 'you loose'}
+    {finalMessage = 'it\'s a draw.'}
 
-    console.log('---GAME OVER---');
-    return (`Final Score: Human ${humanScore} - Computer ${computerScore} - ${finalMessage}`)
+    console.log(`${message}\n---GAME OVER---\nFinal Score: Human ${humanScore} - Computer ${computerScore} - ${finalMessage}`)
+    displayMessage.innerHTML = `Round: ${round} ${message}<br>Final Score: Human ${humanScore} - Computer ${computerScore} - ${finalMessage}<br>---GAME OVER---`
+    const buttons = document.querySelectorAll("button")
+    buttons.forEach(button => {
+        button.disabled = true
+    })
 }
