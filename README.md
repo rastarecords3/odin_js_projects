@@ -7,3 +7,7 @@ The game is played in the console, and is called with: playgame()
 
 18/10/25
 Rock Paper Scissors UI feature added, using buttons rather than console to play game
+
+18/10/2025
+Etch a sketch project started
+Flex container set up, with a js file inserting grid items in via the DOM

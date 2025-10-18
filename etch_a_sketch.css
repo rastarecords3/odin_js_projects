@@ -1,0 +1,15 @@
+#container {
+    margin-top: 25px;
+    display: flex;
+    flex-wrap: wrap;
+    width: 512px;
+    height: 512px;
+    border: solid;
+    justify-self: center;
+}
+
+.grid-item {
+    border: 1px solid;
+    box-sizing: border-box;
+}
+
