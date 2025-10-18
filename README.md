@@ -5,3 +5,5 @@ javascript projects creted as coding exercises for the odin project course
 Functional game of 5 rounds, basic logic working, input validation missing.
 The game is played in the console, and is called with: playgame()
 
+18/10/25
+Rock Paper Scissors UI feature added, using buttons rather than console to play game
