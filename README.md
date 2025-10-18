@@ -11,3 +11,4 @@ Rock Paper Scissors UI feature added, using buttons rather than console to play 
 18/10/2025
 Etch a sketch project started
 Flex container set up, with a js file inserting grid items in via the DOM
+Etch a sketch now fully functional with adjustable grid size
