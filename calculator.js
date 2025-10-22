@@ -1,7 +1,30 @@
 let num1 = null;
 let operator = null;
 let num2 = null;
-let display = "";
+let display = "0";
+
+const displayScreen = document.querySelector("#display");
+const buttons = document.querySelectorAll(".button")
+
+function populateDisplay() {
+    displayScreen.innerText = display.substring(0,15)
+}
+
+buttons.forEach(button => {
+    button.addEventListener("click", () => {
+        const value = button.innerText;
+        if (!isNaN(value) || value === ".") {
+            if (display === "0") {
+                display = value;
+            } else {
+                display += value;
+            }
+            populateDisplay();
+        }
+    })
+})
+
+populateDisplay();
 
 function add(a, b) {
     return a + b;
