@@ -13,6 +13,7 @@ function populateDisplay() {
 function input(value) {
     if (!isNaN(value) || value === ".") {
         if (display.length >= 15) return;
+        if (value === "." && display.includes(".")) return;
         if (display === "0") {
             display = value;
         } else {
