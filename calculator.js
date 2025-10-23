@@ -7,13 +7,14 @@ const displayScreen = document.querySelector("#display");
 const buttons = document.querySelectorAll(".button")
 
 function populateDisplay() {
-    displayScreen.innerText = display.substring(0,15)
+    displayScreen.innerText = display
 }
 
 buttons.forEach(button => {
     button.addEventListener("click", () => {
         const value = button.innerText;
         if (!isNaN(value) || value === ".") {
+            if (display.length >= 15) return;
             if (display === "0") {
                 display = value;
             } else {
