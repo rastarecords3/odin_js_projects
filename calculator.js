@@ -10,20 +10,32 @@ function populateDisplay() {
     displayScreen.innerText = display
 }
 
+function input(value) {
+    if (!isNaN(value) || value === ".") {
+        if (display.length >= 15) return;
+        if (display === "0") {
+            display = value;
+        } else {
+            display += value;
+        }
+        populateDisplay()
+    }
+}
+
 buttons.forEach(button => {
     button.addEventListener("click", () => {
         const value = button.innerText;
-        if (!isNaN(value) || value === ".") {
-            if (display.length >= 15) return;
-            if (display === "0") {
-                display = value;
-            } else {
-                display += value;
-            }
-            populateDisplay();
-        }
-    })
+        input(value);
+    });
+});
+
+document.addEventListener("keydown", (event) => {
+    const key = event.key;
+    if ((key >= "0" && key <= "9") || key === ".") {
+        input(key);
+    }
 })
+
 
 populateDisplay();
 
