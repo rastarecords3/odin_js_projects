@@ -29,6 +29,12 @@ function latchOperatorButton(operatorID) {
 function input(value) {
     // handles digits and decimal point
     if (!isNaN(value) || value === ".") {
+        // unlatch the operator and reset the display
+        if (selectedOperatorButton) {
+            selectedOperatorButton.classList.remove('operator-selected');
+            selectedOperatorButton=null
+            display=""
+        }
         if (display.length >= 15) return;
         if (value === "." && display.includes(".")) return;
         if (display === "0" && value === ".") {
@@ -50,6 +56,11 @@ function input(value) {
     }
     // handles eqauls
     else if (value === "=") {
+        // unlatch the operator button
+        if (selectedOperatorButton) {
+            selectedOperatorButton.classList.remove('operator-selected');
+            selectedOperatorButton=null
+        }
         if (num1 !== null && operator !== null) {
             num2 = display;
             display = String(operate(num1, operator, num2));
