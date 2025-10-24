@@ -45,6 +45,15 @@
     background-color: #999;
 }
 
+.operator-selected {
+    background-color: #cc8400; /* darker orange */
+    box-shadow: inset 0 2px 4px rgba(0,0,0,0.4);
+}
+
+.operator-selected:hover {
+    background-color: #999;
+}
+
 .span-two {
     flex-grow: 2;
 }

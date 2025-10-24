@@ -2,7 +2,7 @@ let num1 = null;
 let operator = null;
 let num2 = null;
 let display = "0";
-
+let selectedOperatorButton = null;
 const displayScreen = document.querySelector("#display");
 const buttons = document.querySelectorAll(".button")
 
@@ -11,6 +11,19 @@ function populateDisplay() {
 }
 
 populateDisplay();
+
+// function to latch the shading to make it clear which operator is selected
+function latchOperatorButton(operatorID) {
+    if (selectedOperatorButton) {
+        selectedOperatorButton.classList.remove('operator-selected');
+    }
+    const newOperatorButton = document.getElementById(operatorID);
+    if (newOperatorButton) {
+        newOperatorButton.classList.add('operator-selected');
+        selectedOperatorButton = newOperatorButton; 
+    }
+}
+
 
 // input funtions
 function input(value) {
@@ -32,7 +45,7 @@ function input(value) {
     else if (["+", "-", "*", "/"].includes(value)) {
         num1 = display;
         operator = value;
-        display = "0";
+        latchOperatorButton(value)
         populateDisplay()
     }
     // handles eqauls
